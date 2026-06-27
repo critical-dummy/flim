@@ -4,11 +4,11 @@ A high-performance instant messaging server built with Go, gRPC, and MongoDB.
 
 ## Features
 
-- ✅ User Authentication with JWT
-- ✅ One-to-One Messaging
-- ✅ Real-time Bidirectional Streaming (gRPC)
-- ✅ MongoDB for Message Persistence
-- ✅ Efficient Protocol Buffer Serialization
+- [x] User Authentication with JWT
+- [x] One-to-One Messaging
+- [x] Real-time Bidirectional Streaming (gRPC)
+- [x] MongoDB for Message Persistence
+- [x] Efficient Protocol Buffer Serialization
 
 ## Tech Stack
 
