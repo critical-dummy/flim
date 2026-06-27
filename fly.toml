@@ -1,0 +1,26 @@
+# fly.toml app configuration file generated for flim
+app = "flim"
+primary_region = "sjc"
+
+[env]
+  MONGODB_URI = "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/flim?retryWrites=true&w=majority"
+  JWT_SECRET = "your-secret-key-change-this"
+
+[build]
+  builder = "pacer"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 50051
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 50051
+    handlers = ["tls"]
+
+[checks]
+  [checks.tcp]
+    grace_period = "10s"
+    interval = "30s"
+    timeout = "5s"
+    type = "tcp"
