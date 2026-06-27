@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package flim;
+
+option go_package = "github.com/critical-dummy/flim/pb";
+
+// User message for authentication
+message User {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+}
+
+// AuthRequest for user login/registration
+message AuthRequest {
+  string username = 1;
+  string email = 2;
+  string password = 3;
+}
+
+// AuthResponse returns JWT token
+message AuthResponse {
+  bool success = 1;
+  string message = 2;
+  string token = 3;
+  User user = 4;
+}
+
+// Message structure for 1-to-1 chat
+message ChatMessage {
+  string id = 1;
+  string from_user_id = 2;
+  string to_user_id = 3;
+  string content = 4;
+  int64 timestamp = 5;
+  bool is_read = 6;
+}
+
+// SendMessageRequest for sending messages
+message SendMessageRequest {
+  string to_user_id = 1;
+  string content = 2;
+}
+
+// Empty message
+message Empty {}

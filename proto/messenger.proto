@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package flim;
+
+option go_package = "github.com/critical-dummy/flim/pb";
+
+import "proto/message.proto";
+
+service MessengerService {
+  // Authentication
+  rpc Register(AuthRequest) returns (AuthResponse);
+  rpc Login(AuthRequest) returns (AuthResponse);
+  
+  // Messaging
+  rpc SendMessage(SendMessageRequest) returns (ChatMessage);
+  rpc StreamMessages(Empty) returns (stream ChatMessage);
+  rpc GetConversation(GetConversationRequest) returns (stream ChatMessage);
+}
+
+message GetConversationRequest {
+  string user_id = 1;
+  int32 limit = 2;
+}
